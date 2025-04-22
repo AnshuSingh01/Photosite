@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="photoq_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Photo Mastery Quiz</h1>
+        <div id="quiz">
+            <div id="question-container">
+                <p id="question"></p>
+                <div id="options">
+                    <!-- Options will be dynamically inserted here by JavaScript -->
+                </div>
+            </div>
+            <div id="timer" style="display: none;">
+                <p>Wait for <span id="time">30</span> seconds before trying again.</p>
+            </div>
+        </div>
+    </div>
+    <script src="photoq_script.js"></script>
+</body>
+</html>

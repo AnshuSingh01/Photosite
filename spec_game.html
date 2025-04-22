@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectrum Runner - Photonics Game</title>
+    <link rel="stylesheet" href="spec_game.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Spectrum Runner</h1>
+        <div id="start-screen">
+            <p>Switch wavelengths to avoid obstacles and collect power-ups!</p>
+            <button id="start-btn">Start Game</button>
+            <div class="controls">
+                <p><strong>Controls:</strong></p>
+                <p>1 = Infrared (IR) - Passes heat clouds</p>
+                <p>2 = Visible Light - Passes mirrors</p>
+                <p>3 = Ultraviolet (UV) - Passes UV barriers</p>
+                <p>Space = Use collected power-up</p>
+                <p>(Mobile: Tap buttons below)</p>
+            </div>
+            <div class="science-tips">
+                <p><strong>Did You Know?</strong></p>
+                <p id="science-tip">Visible light is the only part of the spectrum humans can see!</p>
+            </div>
+        </div>
+        <div id="game-screen" style="display: none;">
+            <canvas id="gameCanvas"></canvas>
+            <div id="ui">
+                <div id="wavelength-display">Wavelength: <span id="current-wavelength">Visible</span></div>
+                <div id="score">Score: 0</div>
+                <div id="powerup-display">Power-up: <span id="current-powerup">None</span></div>
+                <div id="mobile-controls">
+                    <button class="wavelength-btn" data-wavelength="ir">IR</button>
+                    <button class="wavelength-btn" data-wavelength="visible">Visible</button>
+                    <button class="wavelength-btn" data-wavelength="uv">UV</button>
+                    <button id="use-powerup-btn">Use Power-up</button>
+                </div>
+            </div>
+        </div>
+        <div id="game-over" style="display: none;">
+            <h2>Game Over!</h2>
+            <p>Your Score: <span id="final-score">0</span></p>
+            <p id="science-fact"></p>
+            <button id="restart-btn">Play Again</button>
+        </div>
+        <audio id="background-music" loop>
+            <source src="" type="audio/mpeg"> <!-- Add your music file -->
+        </audio>
+        <audio id="collision-sound">
+            <source src="" type="audio/mpeg"> <!-- Add your sound file -->
+        </audio>
+        <audio id="powerup-sound">
+            <source src="" type="audio/mpeg"> <!-- Add your sound file -->
+        </audio>
+    </div>
+    <script src="spec_game.js"></script>
+</body>
+</html>

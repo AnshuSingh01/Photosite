@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victory!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #000428, #004e92);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        
+        .victory-container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .game-over {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff0099, #ff6600, #ff0099);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255,0,153,0.3);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            animation: textGlow 3s infinite alternate;
+        }
+        
+        .you-won {
+            font-size: 6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #00ffaa, #00ccff, #00ffaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0,255,170,0.3);
+            position: relative;
+            display: inline-block;
+            animation: textGlow 3s infinite alternate-reverse, pulse 2s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateY(0deg); }
+            50% { transform: translateY(-20px) rotateY(10deg); }
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px currentColor; }
+            100% { text-shadow: 0 0 30px currentColor; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .sparkle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle 1s forwards;
+        }
+        
+        @keyframes sparkle {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="victory-container">
+        <h1 class="game-over">Game Over</h1>
+        <br>
+        <h1 class="you-won">- You Won -</h1>
+    </div>
+
+    <canvas id="waveCanvas"></canvas>
+
+    <script>
+        // Wave animation
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        initCanvas();
+
+        let wave = {
+            y: canvas.height / 2,
+            length: 0.01,
+            amplitude: 100,
+            frequency: 0.01
+        };
+
+        let increment = wave.frequency;
+
+        function animateWaves() {
+            requestAnimationFrame(animateWaves);
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 2);
+
+            for (let i = 0; i < canvas.width; i++) {
+                ctx.lineTo(i, wave.y + Math.sin(i * wave.length + increment) * wave.amplitude * Math.sin(increment));
+            }
+
+            ctx.strokeStyle = `hsl(${Math.abs(200 * Math.sin(increment))}, 50%, 50%)`;
+            ctx.stroke();
+            increment += wave.frequency;
+        }
+
+        animateWaves();
+
+        // Create sparkle effects
+        function createSparkle(e) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            
+            const size = Math.random() * 20 + 10;
+            const x = e ? e.clientX : Math.random() * window.innerWidth;
+            const y = e ? e.clientY : Math.random() * window.innerHeight;
+            
+            sparkle.style.width = `${size}px`;
+            sparkle.style.height = `${size}px`;
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+            sparkle.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+        
+        // Random sparkles
+        setInterval(() => {
+            if (Math.random() > 0.7) createSparkle();
+        }, 300);
+        
+        // Sparkles on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.8) createSparkle(e);
+        });
+
+        window.addEventListener('resize', initCanvas);
+    </script>
+</body>
+</html>

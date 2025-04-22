@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - IEEE Photonics Society</title>
+    <link rel="stylesheet" href="gallery_styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="IEEE Photonics Society Logo">
+                <div class="logo-text">
+                    <h1>IEEE Photonics BMSIT&M</h1>
+                    <p>Advancing the science and technology of light</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home_index.html">Home</a></li>
+                    <li><a href="about_index.html">About</a></li>
+                    <li><a href="exe_index.html">Execome</a></li>
+                    <li><a href="event_index.html">Events</a></li>
+                    <li><a href="project_index.html">Our Projects</a></li>
+                    <li><a href="member_index.html">Membership</a></li>
+                    <li><a href="game_index.html">Game</a></li>
+                    <li><a href="gallery_index.html">Gallery</a></li>
+
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <section class="hero hero-gallery">
+        <div class="light-wave"></div>
+        <div class="hero-content">
+            <h2>Photonics in Focus</h2>
+            <p>Explore our collection of photonics research, events, and achievements through images.</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="gallery-controls">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="research">Research</button>
+                <button class="filter-btn" data-filter="members">Members</button>
+                <button class="filter-btn" data-filter="awards">Awards</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="gallery-search" placeholder="Search images...">
+                <button class="search-btn">🔍</button>
+            </div>
+        </div>
+        
+        <div class="gallery-grid" id="gallery-container">
+            <!-- Gallery items will be loaded dynamically -->
+        </div>
+        
+        <div class="load-more-container">
+            <button id="load-more" class="cta-button">Load More</button>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Chapters</a></li>
+                    <li><a href="#">Awards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Membership</h3>
+                <ul>
+                    <li><a href="#">Join Now</a></li>
+                    <li><a href="#">Benefits</a></li>
+                    <li><a href="#">Student Resources</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Publications</h3>
+                <ul>
+                    <li><a href="#">Journals</a></li>
+                    <li><a href="#">Magazines</a></li>
+                    <li><a href="#">Newsletters</a></li>
+                    <li><a href="#">Standards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Social Media</a></li>
+                    <li><a href="#">Career Center</a></li>
+                    <li><a href="#">IEEE.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; <span id="current-year"></span> IEEE Photonics Society. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal" id="image-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <div class="image-info">
+                <h3 id="image-title"></h3>
+                <p id="image-description"></p>
+                <div class="image-meta">
+                    <span id="image-date"></span>
+                    <span id="image-category"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="gallery_script.js"></script>
+    <script src="gallery_gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #0a0a1a;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#game-container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    color: #00f7ff;
+    text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+    margin-bottom: 20px;
+}
+
+button {
+    background: #0066ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #0055dd;
+    transform: scale(1.05);
+}
+
+#gameCanvas {
+    background: #000;
+    border: 2px solid #00f7ff;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+}
+
+#ui {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#wavelength-display, #score, #powerup-display {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+#mobile-controls {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    #mobile-controls {
+        display: flex;
+    }
+    .wavelength-btn {
+        padding: 8px 15px;
+    }
+    #ui {
+        flex-direction: column;
+    }
+}
+
+.controls {
+    margin: 20px 0;
+    text-align: left;
+    padding: 15px;
+    background: rgba(0, 0, 50, 0.5);
+    border-radius: 5px;
+    border-left: 3px solid #00f7ff;
+}
+
+.science-tips {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(0, 50, 50, 0.5);
+    border-radius: 5px;
+    border-left: 3px solid #ff4500;
+    text-align: left;
+}
+
+#science-fact {
+    font-style: italic;
+    color: #00f7ff;
+    margin: 15px 0;
+}
+
+.powerup-active {
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 5px #fff;
+    }
+    to {
+        box-shadow: 0 0 20px #ff0;
+    }
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    pointer-events: none;
+    z-index: 100;
+    max-width: 200px;
+    font-size: 14px;
+}

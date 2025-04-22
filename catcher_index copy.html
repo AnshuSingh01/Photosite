@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photon Catcher v2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="catcher_style copy.css">
+</head>
+<body>
+  <div id="start-screen" class="screen">
+    <h1>⚡ Photon Catcher</h1>
+    <p>Catch the Photons, avoid the Dark Photons!</p>
+    <button id="start-btn">Play</button>
+  </div>
+
+  <div id="game-over-screen" class="screen hidden">
+    <h2>Game Over</h2>
+    <p>Your Score: <span id="final-score">0</span></p>
+    <p>High Score: <span id="high-score">0</span></p>
+    <button id="restart-btn">Try Again</button>
+    <div id="leaderboard">
+        <h3>Leaderboard</h3>
+        <ol id="top-scores"></ol>
+      </div>
+  </div>
+  <div id="fact-popup" class="screen hidden">
+    <h2>Did You Know?</h2>
+    <p id="fact-text"></p>
+    <button id="fact-close-btn">Continue</button>
+  </div>
+
+  <div id="game" class="hidden">
+    <div id="collector"></div>
+    <div id="scoreboard">Score: <span id="score">0</span></div>
+    <!-- Optional loading animation -->
+    <div id="background-stars"></div>
+  </div>
+<audio id="ping" src="ping.mp3"></audio>
+<audio id="buzz" src="buzz.mp3"></audio>
+
+  <script src="catcher_script copy.js"></script>
+</body>
+</html>

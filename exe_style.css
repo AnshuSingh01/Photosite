@@ -1,0 +1,643 @@
+/* CSS Variables */
+:root {
+    --ieee-blue: #00629B;
+    --photonics-blue: #003B5C;
+    --accent-orange: #FF7D32;
+    --light-blue: #E6F2FF;
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --text-dark: #2D3748;
+    --text-medium: #4A5568;
+    --text-light: #718096;
+    --shadow-sm: 0 1px 3px rgba(0, 59, 92, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 59, 92, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 59, 92, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+}
+
+body {
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--off-white);
+}
+
+a {
+    text-decoration: none;
+    color: var(--ieee-blue);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--photonics-blue);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--accent-orange);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 60px;
+    transition: var(--transition);
+}
+
+.logo-text h1 {
+    font-size: 24px;
+    color: var(--photonics-blue);
+    font-weight: 700;
+}
+
+.logo-text p {
+    font-size: 14px;
+    color: var(--text-medium);
+    font-weight: 500;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: var(--photonics-blue);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 0;
+    position: relative;
+}
+
+nav ul li a.active {
+    color: var(--accent-orange);
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-orange);
+    transition: var(--transition);
+}
+
+nav ul li a:hover:after,
+nav ul li a.active:after {
+    width: 100%;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--photonics-blue);
+}
+
+/* Team Section */
+.team-section {
+    padding: 80px 0;
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--photonics-blue);
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-orange);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.team-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: var(--text-medium);
+    font-size: 18px;
+}
+
+.team-category {
+    margin-bottom: 60px;
+}
+
+.team-category h2 {
+    color: var(--photonics-blue);
+    font-size: 28px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light-blue);
+    position: relative;
+}
+
+.team-category h2:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background-color: var(--accent-orange);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.team-member {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.team-member.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.member-photo {
+    height: 300px;
+    width: 270px ;
+    background-color: var(--light-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.member-photo:before {
+    content: 'Photo';
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+.faculty .member-photo {
+    height: 340px;
+}
+
+.member-info {
+    padding: 20px;
+}
+
+.member-name {
+    font-size: 18px;
+    color: var(--photonics-blue);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.member-position {
+    color: var(--accent-orange);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.member-department {
+    color: var(--text-medium);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-links a {
+    color: var(--ieee-blue);
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--accent-orange);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--photonics-blue);
+    color: var(--white);
+    padding: 60px 0 20px;
+    position: relative;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--accent-orange), var(--ieee-blue));
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.footer-column h3 {
+    color: var(--accent-orange);
+    margin-bottom: 25px;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: rgba(255, 125, 50, 0.5);
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
+}
+
+.footer-column ul li a:hover {
+    color: var(--white);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: var(--shadow-lg);
+        padding: 20px;
+        transform: translateY(-150%);
+        transition: var(--transition);
+    }
+    
+    nav.active {
+        transform: translateY(0);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .team-description {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    
+    .team-category h2 {
+        font-size: 24px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Update the .member-photo styles */
+.member-photo {
+    height: 200px;
+    background-color: var(--light-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Remove the :before pseudo-element as we won't need the "Photo" text anymore */
+.member-photo:before {
+    display: none;
+}
+
+.faculty .member-photo {
+    height: 240px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add this to the existing style section in extra.html */
+.membership-section {
+    background-color: var(--photonics-blue);
+    color: var(--white);
+    padding: 80px 0;
+    position: relative;
+}
+
+.membership-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--accent-orange), var(--ieee-blue));
+}
+
+.membership-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.membership-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.membership-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.membership-benefits {
+    margin-bottom: 40px;
+    text-align: left;
+    display: inline-block;
+}
+
+.membership-benefits ul {
+    list-style: none;
+}
+
+.membership-benefits li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.membership-benefits li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-orange);
+    font-weight: bold;
+}
+
+.membership-button {
+    display: inline-block;
+    background-color: var(--accent-orange);
+    color: var(--white);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(255, 125, 50, 0.3);
+}
+
+.membership-button:hover {
+    background-color: var(--white);
+    color: var(--accent-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 125, 50, 0.4);
+}
+
+@media (max-width: 768px) {
+    .membership-title {
+        font-size: 28px;
+    }
+    
+    .membership-description {
+        font-size: 16px;
+    }
+    
+    .membership-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+
+/* Membership CTA Section */
+.membership-cta {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.membership-box {
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+}
+
+.membership-content {
+    flex: 1;
+    padding: 40px;
+    background: white;
+    z-index: 2;
+}
+
+.membership-gradient {
+    width: 30%;
+    background: linear-gradient(135deg, var(--accent-orange), var(--ieee-blue));
+    position: relative;
+}
+
+.membership-content h2 {
+    color: var(--photonics-blue);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.membership-content p {
+    color: var(--text-medium);
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.membership-content ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.membership-content ul li {
+    margin-bottom: 12px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+}
+
+.membership-content ul li i {
+    color: var(--accent-orange);
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.join-button {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(to right, var(--accent-orange), var(--ieee-blue));
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 98, 155, 0.2);
+}
+
+.join-button i {
+    margin-left: 8px;
+    transition: var(--transition);
+}
+
+.join-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 98, 155, 0.3);
+}
+
+.join-button:hover i {
+    transform: translateX(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .membership-box {
+        flex-direction: column;
+    }
+    
+    .membership-gradient {
+        width: 100%;
+        height: 20px;
+    }
+    
+    .membership-content {
+        padding: 30px;
+    }
+    
+    .membership-content h2 {
+        font-size: 24px;
+    }
+}

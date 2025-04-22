@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Maze Game</title>
+    <link rel="stylesheet" href="LM_style4.css">
+</head>
+<body>
+    <div class="wave-center"></div>
+    <div class="container">
+        <h1>LASER MAZE GAME</h1>
+        <H2>Level 4</H2>
+        <P>~ Redirect the laser beam to the exit door using mirrors. Avoid obstacles and solve the puzzle</P>
+        <div class="game-container">
+            <div class="game-board">
+                <table class="grid"></table>
+            </div>
+            <div class="controls">
+                <h3>Add Mirrors</h3>
+                <div class="buttons">
+                    <button class="mirror-btn" data-type="slash">/</button>
+                    <button class="mirror-btn" data-type="backslash">\</button>
+                </div>
+                <button class="reset-btn" onclick="resetGame()">Reset</button>
+                <p id="win-message" class="win-message" style="display: none;">You Win! 🎉</p>
+                <button id="next-level-btn" class="next-level-btn" style="display: none;" onclick="nextLevel()">Next Level</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="LM_script4.js"></script>
+</body>
+</html>

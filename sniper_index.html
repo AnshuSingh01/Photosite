@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Sniper - Optical Physics Game</title>
+    <link rel="stylesheet" href="sniper_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>LIGHT SNIPER</h1>
+            <div class="game-info">
+                <div class="info-box">
+                    <span>Level</span>
+                    <span id="level-number">1</span>
+                </div>
+                <div class="info-box">
+                    <span>Score</span>
+                    <span id="score">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-screen">
+            <canvas id="game-canvas"></canvas>
+            
+            <div id="level-complete" class="modal">
+                <div class="modal-content">
+                    <h2>LEVEL COMPLETE!</h2>
+                    <p>You scored <span id="level-score">0</span> points</p>
+                    <div class="modal-buttons">
+                        <button id="next-level-btn" class="btn-primary">Next Level</button>
+                        <button id="menu-btn" class="btn-secondary">Main Menu</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game-menu" class="modal active">
+                <div class="modal-content">
+                    <h2>LIGHT SNIPER</h2>
+                    <div class="menu-buttons">
+                        <button id="start-game-btn" class="btn-primary">Start Game</button>
+                        <button id="how-to-play-btn" class="btn-secondary">How to Play</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="how-to-play" class="modal">
+                <div class="modal-content">
+                    <h2>HOW TO PLAY</h2>
+                    <div class="instructions">
+                        <div class="instruction-step">
+                            <div class="step-number">1</div>
+                            <p>Select an optical tool from the toolbar</p>
+                        </div>
+                        <div class="instruction-step">
+                            <div class="step-number">2</div>
+                            <p>Click on the game area to place it</p>
+                        </div>
+                        <div class="instruction-step">
+                            <div class="step-number">3</div>
+                            <p>Drag to move or right-click to rotate components</p>
+                        </div>
+                        <div class="instruction-step">
+                            <div class="step-number">4</div>
+                            <p>Click "Shoot Laser" to test your setup</p>
+                        </div>
+                        <div class="instruction-step">
+                            <div class="step-number">5</div>
+                            <p>Hit all targets to complete the level!</p>
+                        </div>
+                    </div>
+                    <button id="back-to-menu-btn" class="btn-primary">Back to Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <div class="toolbar">
+                <button class="tool-button active" id="mirror-tool" data-tool="mirror">
+                    <div class="tool-icon mirror-icon"></div>
+                    <span>Mirror</span>
+                </button>
+                <button class="tool-button" id="glass-tool" data-tool="glass">
+                    <div class="tool-icon glass-icon"></div>
+                    <span>Glass</span>
+                </button>
+                <button class="tool-button" id="splitter-tool" data-tool="splitter">
+                    <div class="tool-icon splitter-icon"></div>
+                    <span>Splitter</span>
+                </button>
+                <button class="tool-button" id="prism-tool" data-tool="prism">
+                    <div class="tool-icon prism-icon"></div>
+                    <span>Prism</span>
+                </button>
+                <button class="tool-button" id="delete-tool" data-tool="delete">
+                    <div class="tool-icon delete-icon">🗑️</div>
+                    <span>Delete</span>
+                </button>
+            </div>
+
+            <div class="action-buttons">
+                <button id="shoot-btn" class="btn-primary">Shoot Laser</button>
+                <button id="reset-btn" class="btn-secondary">Reset Level</button>
+            </div>
+        </div>
+    </div>
+        <!-- Audio Elements -->
+        <audio id="laser-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-laser-gun-shot-1680.mp3" preload="auto"></audio>
+        <audio id="target-hit-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3" preload="auto"></audio>
+        <audio id="component-place-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
+        <audio id="level-complete-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-unlock-game-notification-253.mp3" preload="auto"></audio>
+
+    <script src="sniper_game.js" type="module"></script>
+</body>
+</html>

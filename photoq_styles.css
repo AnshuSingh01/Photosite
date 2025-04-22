@@ -1,0 +1,137 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* You can use CSS to prevent users from selecting text: */
+body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* Standard */
+}
+
+/* Rainbow Background Animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #2b075e, #38024e, #074675, #4da1e2, #3cde82, #cedf34);
+    background-size: 400% 400%;
+    animation: rainbow 10s linear infinite;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Sparkling Corner Designs */
+body::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+    background-size: 20px 20px;
+    z-index: -1;
+    animation: sparkle 5s infinite;
+}
+
+/* Sparkle Animation */
+@keyframes sparkle {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    text-align: center;
+    width: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+@keyframes wave {
+    0% { background-position: 0 0; }
+    100% { background-position: 200% 0; }
+}
+
+h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #c950d7;
+    text-shadow: 0 0 10px #e65adf;
+}
+
+#question {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #444;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #00ffcc;
+}
+
+.option.correct {
+    background: #4caf50;
+    border-color: #4caf50;
+}
+
+.option.incorrect {
+    background: #f44336;
+    border-color: #f44336;
+}
+
+#timer {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #ffcc00;
+}

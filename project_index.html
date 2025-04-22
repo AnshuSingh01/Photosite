@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Projects - IEEE Photonics Society</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link rel="stylesheet" href="project_style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="logo.png" alt="IEEE Photonics Society Logo" />
+        <div class="logo-text">
+          <h1>IEEE Photonics BMSIT&M</h1>
+          <p>Advancing the science and technology of light</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="home_index.html">Home</a></li>
+          <li><a href="about_index.html">About</a></li>
+          <li><a href="exe_index.html">Execome</a></li>
+          <li><a href="event_index.html">Events</a></li>
+          <li><a href="project_index.html">Our Projects</a></li>
+          <li><a href="member_index.html">Membership</a></li>
+          <li><a href="game_index.html">Game</a></li>
+          <li><a href="gallery_index.html">Gallery</a></li>
+
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle">☰</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <div class="projects-header">
+        <h2>OUR PROJECTS</h2>
+        <p>Explore the innovative works driven by our student community.</p>
+
+        <div class="projects-controls">
+          <input type="text" id="search-bar" placeholder="Search projects..."/>
+
+          <select id="filter-category">
+            <option value="">Category</option>
+            <option value="Quantum Photonics">Quantum Photonics</option>
+            <option value="Integrated Photonics">Integrated Photonics</option>
+            <option value="Biophotonics">Biophotonics</option>
+            <option value="Optical Communications">Optical Communications</option>
+            <option value="Photovoltaics">Photovoltaics</option>
+          </select>
+
+          <select id="filter-timeline">
+            <option value="">Timeline</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+          </select>
+
+          <select id="filter-impact">
+            <option value="">Impact Area</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Environment">Environment</option>
+            <option value="Communication">Communication</option>
+            <option value="Energy">Energy</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Project Categories Grid -->
+      <div class="category-grid">
+        <div class="category-card" data-category="Quantum Photonics">
+          <i class="fas fa-atom"></i>
+          <span>Quantum Photonics</span>
+        </div>
+        <div class="category-card" data-category="Integrated Photonics">
+          <i class="fas fa-project-diagram"></i>
+          <span>Integrated Photonics</span>
+        </div>
+        <div class="category-card" data-category="Biophotonics">
+          <i class="fas fa-dna"></i>
+          <span>Biophotonics</span>
+        </div>
+        <div class="category-card" data-category="Optical Communications">
+          <i class="fas fa-satellite-dish"></i>
+          <span>Optical Communications</span>
+        </div>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="project-grid">
+
+        <div class="project-card">
+          <img src="images/project1-thumbnail.png" alt="Smart Traffic Light System Thumbnail" />
+          <div class="project-content">
+            <h3>Smart Traffic Light System <span class="timeframe">(2023–2024)</span></h3>
+            <p class="description">
+              A responsive traffic control system using IoT sensors and real-time data to improve city traffic flow.
+            </p>
+            <p><strong>Investigators:</strong> Ananya R, Ravi Kumar</p>
+            <p><strong>Sponsors:</strong></p>
+            <div class="sponsors">
+              <img src="images/ieee-logo.png" alt="IEEE Logo" />
+              <img src="images/bmsit-logo.png" alt="BMSIT Logo" />
+            </div>
+            <a href="projects/smart-traffic/index.html" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="images/project2-thumbnail.png" alt="Biophotonics Sensor Thumbnail" />
+          <div class="project-content">
+            <h3>Wearable Biophotonics Sensor <span class="timeframe">(2024)</span></h3>
+            <p class="description">
+              This device tracks blood oxygenation using photonic sensors and provides real-time health metrics.
+            </p>
+            <p><strong>Investigators:</strong> Neha M, Abhay Singh</p>
+            <p><strong>Sponsors:</strong></p>
+            <div class="sponsors">
+              <img src="images/photonics-logo.png" alt="Photonics Society Logo" />
+              <img src="images/mit-logo.png" alt="MIT Logo" />
+            </div>
+            <a href="projects/biophotonics-sensor.html" class="btn">Read More</a>
+          </div>
+        </div>
+
+      </div> <!-- End of project-grid -->
+    </section>
+
+    <!-- Featured Projects Carousel -->
+    <section class="featured-projects">
+      <h2>FEATURED PROJECTS</h2>
+
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow left">&#10094;</button>
+
+        <div class="carousel-container" id="carousel">
+          <div class="carousel-track">
+
+            <div class="project-feature-card">
+              <img src="images/project1-thumbnail.png" alt="Quantum Secure Comm" />
+              <div class="project-info">
+                <h3>Quantum Secure Communication</h3>
+                <p>Developing a tamper-proof photonic communication system using quantum entanglement.</p>
+                <span class="status completed">Completed</span>
+                <a href="#" class="btn">Learn More</a>
+              </div>
+            </div>
+
+            <div class="project-feature-card">
+              <img src="images/project2-thumbnail.png" alt="Smart Optical Sensor" />
+              <div class="project-info">
+                <h3>Smart Optical Sensor</h3>
+                <p>Multi-wavelength sensor for real-time air quality and pollution tracking.</p>
+                <span class="status active">Active</span>
+                <a href="#" class="btn">Learn More</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="carousel-arrow right">&#10095;</button>
+      </div>
+
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </section>
+    <section class="get-involved-section">
+        <div class="container">
+          <h2>Get Involved</h2>
+          <p>Become an active part of our innovation journey. Here’s how you can contribute and grow with us!</p>
+      
+          <div class="involvement-grid">
+            <div class="involve-card">
+              <h3>Join Existing Projects</h3>
+              <p>Collaborate with peers on ongoing projects. Learn new skills, contribute ideas, and make an impact.</p>
+              <a href="#projects" class="btn">Explore Projects</a>
+            </div>
+      
+            <div class="involve-card">
+              <h3>Submit a Proposal</h3>
+              <p>Have a unique idea? Share your proposal with the team and bring it to life with our support.</p>
+              <a href="#submit-proposal" class="btn">Submit Idea</a>
+            </div>
+      
+            <div class="involve-card">
+              <h3>Access Funding & Resources</h3>
+              <p>We offer access to institutional funding, lab equipment, and mentorship to support your innovation.</p>
+              <a href="#funding-resources" class="btn">View Resources</a>
+            </div>
+      
+            <div class="involve-card">
+              <h3>Attend Events & Workshops</h3>
+              <p>Participate in technical sessions, hackathons, and skill-building workshops to enhance your knowledge.</p>
+              <a href="#events" class="btn">View Events</a>
+            </div>
+          </div>
+        </div>
+      </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <ul>
+          <li><a href="#">Our Mission</a></li>
+          <li><a href="#">Leadership</a></li>
+          <li><a href="#">Chapters</a></li>
+          <li><a href="#">Awards</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Membership</h3>
+        <ul>
+          <li><a href="#">Join Now</a></li>
+          <li><a href="#">Benefits</a></li>
+          <li><a href="#">Student Resources</a></li>
+          <li><a href="#">Volunteer</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Publications</h3>
+        <ul>
+          <li><a href="#">Journals</a></li>
+          <li><a href="#">Magazines</a></li>
+          <li><a href="#">Newsletters</a></li>
+          <li><a href="#">Standards</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Social Media</a></li>
+          <li><a href="#">Career Center</a></li>
+          <li><a href="#">IEEE.org</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; <span id="current-year"></span> IEEE Photonics Society. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="project_script.js"></script>
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

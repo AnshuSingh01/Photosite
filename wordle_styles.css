@@ -1,0 +1,317 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0a0a1a;
+    color: #e0e0ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Light wave decorations */
+.light-wave {
+    position: absolute;
+    height: 100px;
+    width: 300%;
+    background: linear-gradient(90deg, 
+        rgba(20, 20, 60, 0) 0%, 
+        rgba(100, 80, 255, 0.3) 50%, 
+        rgba(20, 20, 60, 0) 100%);
+    animation: wave-animation 15s linear infinite;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.light-wave:nth-child(1) {
+    top: 15%;
+    transform: rotate(-2deg);
+    animation-delay: 0s;
+}
+
+.light-wave:nth-child(2) {
+    top: 35%;
+    transform: rotate(1deg);
+    animation-delay: -3s;
+}
+
+.light-wave:nth-child(3) {
+    top: 55%;
+    transform: rotate(-1deg);
+    animation-delay: -6s;
+}
+
+.light-wave:nth-child(4) {
+    top: 75%;
+    transform: rotate(2deg);
+    animation-delay: -9s;
+}
+
+@keyframes wave-animation {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* LED-like title */
+h1 {
+    color: #4af;
+    text-shadow: 0 0 10px #4af, 0 0 20px #4af;
+    margin-bottom: 5px;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from { text-shadow: 0 0 5px #4af, 0 0 10px #4af; }
+    to { text-shadow: 0 0 15px #4af, 0 0 30px #4af; }
+}
+
+.subtitle {
+    color: #8cf;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.level-display {
+    background-color: rgba(30, 30, 60, 0.7);
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #4af;
+    box-shadow: 0 0 10px rgba(100, 150, 255, 0.3);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+}
+
+.board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+}
+
+.tile {
+    width: 100%;
+    aspect-ratio: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e0e0ff;
+    background: rgba(30, 30, 60, 0.7);
+    border: 2px solid #444;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: transform 0.1s, background-color 0.3s, border-color 0.3s;
+}
+
+.tile[data-state="active"] {
+    border-color: #666;
+    animation: pulse-tile 1.5s infinite;
+}
+
+@keyframes pulse-tile {
+    0% { border-color: #666; }
+    50% { border-color: #4af; }
+    100% { border-color: #666; }
+}
+
+.tile[data-state="correct"] {
+    background-color: #4caf50;
+    border-color: #4caf50;
+    color: white;
+}
+
+.tile[data-state="present"] {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: white;
+}
+
+.tile[data-state="absent"] {
+    background-color: #333;
+    border-color: #333;
+    color: #666;
+}
+
+.tile[data-animation="pop"] {
+    animation: pop 0.1s linear;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.tile[data-animation="flip"] {
+    animation: flip 0.5s ease forwards;
+}
+
+@keyframes flip {
+    0% { transform: rotateX(0); }
+    50% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0); }
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.key {
+    flex: 1;
+    max-width: 40px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #e0e0ff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.key:hover {
+    background-color: #444;
+}
+
+.key:active {
+    transform: scale(0.95);
+}
+
+.key-wide {
+    flex: 2;
+    max-width: 65px;
+    font-size: 0.8rem;
+}
+
+.key[data-state="correct"] {
+    background-color: #4caf50;
+    color: white;
+}
+
+.key[data-state="present"] {
+    background-color: #ffc107;
+    color: white;
+}
+
+.key[data-state="absent"] {
+    background-color: #333;
+    color: #666;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(30, 30, 60, 0.9);
+    text-align: center;
+    max-width: 300px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border: 1px solid #4af;
+    box-shadow: 0 0 15px rgba(100, 150, 255, 0.3);
+}
+
+.message.show {
+    opacity: 1;
+}
+
+.next-level-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4af;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    display: none;
+}
+
+.next-level-btn:hover {
+    background-color: #6cf;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(100, 150, 255, 0.4);
+}
+
+.next-level-btn:active {
+    transform: translateY(0);
+}
+
+.led-strip {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, 
+        #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+    background-size: 200% 100%;
+    animation: led-animation 5s linear infinite;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes led-animation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.instructions {
+    background-color: rgba(30, 30, 60, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-width: 350px;
+    border: 1px solid #4af;
+    box-shadow: 0 0 10px rgba(100, 150, 255, 0.3);
+}
+
+.instructions h3 {
+    color: #4af;
+    margin-top: 0;
+}
+
+.instructions ul {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 5px;
+}

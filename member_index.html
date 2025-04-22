@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership - IEEE Photonics Society</title>
+    <link rel="stylesheet" href="member_styles.css">
+    <style>
+        /* Membership Page Specific Styles */
+        .membership-hero {
+            background: linear-gradient(135deg, var(--photonics-blue) 0%, var(--ieee-blue) 100%);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership-hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .membership-hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .membership-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .membership-section {
+            margin-bottom: 60px;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--accent-orange);
+        }
+
+        .membership-section h2 {
+            color: var(--photonics-blue);
+            font-size: 28px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .membership-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-orange);
+            border-radius: 3px;
+        }
+
+        .membership-section p {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .membership-section ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .membership-section li {
+            margin-bottom: 12px;
+            color: var(--text-medium);
+            position: relative;
+            padding-left: 30px;
+            line-height: 1.6;
+        }
+
+        .membership-section li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            background: var(--light-blue);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-orange);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .benefit-card h3 {
+            color: var(--photonics-blue);
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefit-card p {
+            margin-bottom: 0;
+        }
+
+        .steps-list {
+            counter-reset: step-counter;
+            margin-top: 30px;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+            min-height: 40px;
+        }
+
+        .step-item:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-method {
+            flex: 1;
+            min-width: 200px;
+            background: var(--light-blue);
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            color: var(--accent-orange);
+        }
+
+        .contact-text h3 {
+            color: var(--photonics-blue);
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .contact-text p {
+            margin-bottom: 0;
+            color: var(--ieee-blue);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .membership-hero {
+                padding: 80px 20px;
+            }
+            
+            .membership-hero h1 {
+                font-size: 32px;
+            }
+            
+            .membership-hero p {
+                font-size: 18px;
+            }
+            
+            .membership-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.png" alt="IEEE Photonics Society Logo">
+                <div class="logo-text">
+                    <h1>IEEE Photonics BMSIT&M</h1>
+                    <p>Advancing the science and technology of light</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home_index.html">Home</a></li>
+                    <li><a href="about_index.html">About</a></li>
+                    <li><a href="exe_index.html">Execome</a></li>
+                    <li><a href="event_index.html">Events</a></li>
+                    <li><a href="project_index.html">Our Projects</a></li>
+                    <li><a href="member_index.html">Membership</a></li>
+                    <li><a href="game_index.html">Game</a></li>
+                    <li><a href="gallery_index.html">Gallery</a></li>
+
+
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </header>
+    
+    <section class="membership-hero">
+        <h1>Join Our Photonics Community</h1>
+        <p>Become part of the IEEE Photonics Society at BMSIT&M and advance your journey in light-based technologies</p>
+    </section>
+    
+    <div class="membership-container">
+        <section class="membership-section">
+            <h2>Why Join?</h2>
+            <p>Join the <strong>IEEE Photonics Club at BMSCE</strong> and become part of a dynamic community passionate about light-based technologies. As a member, you'll explore the world of photonics through workshops, hands-on projects, competitions, and exclusive events — all designed to enhance your skills and broaden your exposure.</p>
+        </section>
+        
+        <section class="membership-section">
+            <h2>Membership Details</h2>
+            <ul>
+                <li><strong>Eligibility:</strong> Open to all BMSIT students (across all branches and semesters)</li>
+                <li><strong>Duration:</strong> Membership is valid for one academic year</li>
+                <li><strong>Fees:</strong> Refer to the official <a href="https://www.ieee.org/membership/index.html" target="_blank">IEEE Photonics Membership Page</a> for fee details</li>
+            </ul>
+        </section>
+        
+        <section class="membership-section">
+            <h2>Member Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🧠 Interactive Workshops</h3>
+                    <p>Participate in technical sessions and hands-on workshops to enhance your photonics knowledge.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>📜 Official Certificate</h3>
+                    <p>Receive a certificate of membership recognizing your participation in the society.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🛠️ Project Opportunities</h3>
+                    <p>Work on real-world photonics projects to apply your learning practically.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🌐 Guest Lectures</h3>
+                    <p>Access to exclusive webinars and talks by industry experts and researchers.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🌟 Competitions</h3>
+                    <p>Participate in member-only competitions and showcase your skills.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🤝 Networking</h3>
+                    <p>Connect with like-minded peers and professionals in the photonics field.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="membership-section">
+            <h2>How to Join</h2>
+            <p>Ready to begin your photonics journey? Here's how you can join:</p>
+            <div class="steps-list">
+                <div class="step-item">
+                    <p>Visit the <a href="https://students.ieee.org/" target="_blank">IEEE Student Membership Page</a></p>
+                </div>
+                <div class="step-item">
+                    <p>Navigate to the "Student Membership" section</p>
+                </div>
+                <div class="step-item">
+                    <p>Search and select <strong>Photonics Society</strong> under technical societies</p>
+                </div>
+                <div class="step-item">
+                    <p>Complete the registration process and payment</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="membership-section">
+            <h2>Need Help?</h2>
+            <p>Have questions or need assistance? We're here to help!</p>
+            <div class="contact-info">
+                <div class="contact-method">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-text">
+                        <h3>Email Us</h3>
+                        <p>xyz@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-text">
+                        <h3>Call Us</h3>
+                        <p>Amit Patil (Chair) | 7338546301</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Chapters</a></li>
+                    <li><a href="#">Awards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Membership</h3>
+                <ul>
+                    <li><a href="#">Join Now</a></li>
+                    <li><a href="#">Benefits</a></li>
+                    <li><a href="#">Student Resources</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Publications</h3>
+                <ul>
+                    <li><a href="#">Journals</a></li>
+                    <li><a href="#">Magazines</a></li>
+                    <li><a href="#">Newsletters</a></li>
+                    <li><a href="#">Standards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Social Media</a></li>
+                    <li><a href="#">Career Center</a></li>
+                    <li><a href="#">IEEE.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; <span id="current-year"></span> IEEE Photonics Society. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="member_script.js"></script>
+    <script>
+        // Highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage || 
+                    (currentPage === 'index.html' && linkHref === '#')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

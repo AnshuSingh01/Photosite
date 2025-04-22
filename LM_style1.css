@@ -1,0 +1,216 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+}
+
+/* You can use CSS to prevent users from selecting text: */
+body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* Standard */
+}
+
+@keyframes photonFlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Game Board */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.game-board {
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.grid {
+    border-collapse: collapse;
+}
+
+.grid td {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #555;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgba(68, 68, 68, 0.8);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.grid td::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
+    animation: neonGlow 1.5s infinite alternate;
+}
+
+
+
+@keyframes neonGlow {
+    0% { border-color: rgba(255, 255, 255, 0.3); box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.3); }
+    100% { border-color: rgba(255, 255, 255, 0.8); box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8); }
+}
+
+/* Laser Path */
+.grid td.laser {
+    background-color: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 10px red;
+    animation: laserGlow 1s infinite alternate;
+}
+
+@keyframes laserGlow {
+    0% { box-shadow: 0 0 10px red; }
+    100% { box-shadow: 0 0 20px red; }
+}
+
+/* Mirror Styling */
+.grid td.mirror {
+    background-color: rgba(0, 255, 255, 0.3);
+    font-weight: bold;
+    font-size: 30px; /* Larger font size for mirrors */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: mirrorGlow 2s infinite alternate;
+}
+
+.grid td.mirror[data-mirror="slash"] {
+    transform: rotate(45deg); /* Rotate clockwise for "/" */
+}
+
+.grid td.mirror[data-mirror="backslash"] {
+    transform: rotate(-45deg); /* Rotate anticlockwise for "\" */
+}
+
+@keyframes mirrorGlow {
+    0% { box-shadow: 0 0 5px cyan; }
+    100% { box-shadow: 0 0 15px cyan; }
+}
+
+/* Source and Target Styling */
+.grid td.source {
+    background-color: rgba(255, 0, 0, 0.7);
+    font-weight: bold;
+    animation: sourceGlow 1.5s infinite alternate;
+}
+
+@keyframes sourceGlow {
+    0% { box-shadow: 0 0 10px red; }
+    100% { box-shadow: 0 0 20px red; }
+}
+
+.grid td.target {
+    background-color: rgba(0, 255, 0, 0.7);
+    font-weight: bold;
+    animation: targetGlow 1.5s infinite alternate;
+}
+
+@keyframes targetGlow {
+    0% { box-shadow: 0 0 10px lime; }
+    100% { box-shadow: 0 0 20px lime; }
+}
+
+/* Controls */
+.controls {
+    background-color: rgba(34, 34, 34, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mirror-btn, .reset-btn {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.mirror-btn:hover, .reset-btn:hover {
+    background-color: #666;
+}
+
+
+/* Next Level Button */
+.next-level-btn {
+    background-color: #00ff00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.next-level-btn:hover {
+    background-color: #00cc00;
+}
+
+.win-message {
+    font-size: 1.5rem;
+    color: #00ff00;
+    margin-top: 20px;
+    text-shadow: 0 0 10px lime, 0 0 20px lime;
+}
+
+
+/* Centered Static Image */
+.wave-center {
+    position: absolute; /* Keeps it inside the content flow */
+    width: 1550px; /* Adjust as needed */
+    height: 900px; /* Adjust as needed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering trick */
+    background: url('image.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.8;
+    z-index: 1; /* Make sure it appears above the background */
+}
